@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/RyanWu/Dev/cProgramming/ex19'
+let g:netrw_dirhist_2='/Users/RyanWu'
+let g:netrw_dirhist_3='/Users/RyanWu/Dev/pythonPractice'
+let g:netrw_dirhist_4='/Users/RyanWu'
+let g:netrw_dirhist_5='/usr/local/lib/python2.7'
+let g:netrw_dirhist_6='/usr/local/lib/python2.7/site-packages'
