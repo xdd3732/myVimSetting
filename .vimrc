@@ -44,7 +44,7 @@ set t_Co=256
 set background=dark
 colorscheme Papercolor
 set laststatus=2
-let g:airline_theme = "dracula"
+let g:airline_theme = "dark"
 let g:airline_powerline_fonts = 1 " set 0 if you don't have powerline font, otherwise set 1
 let g:airline#extensions#tabline#enabled=1 " enable tabline
 let g:airline#extensions#tabline#fnamemod=':t' " show only filename in tabline
