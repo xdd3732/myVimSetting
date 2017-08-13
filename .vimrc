@@ -35,6 +35,7 @@ set list " enable invisible charactor
 set listchars=space:·,tab:>> " set symbol for invisible charactor
 set ignorecase 
 set smartcase " case sensitive only when you search big case word
+set showcmd " show key stroke
 "  Explore setting
 let g:netrw_browse_split = 4 " set explore list style
 let g:netrw_altv = 1 
@@ -44,16 +45,11 @@ set t_Co=256
 set background=dark
 colorscheme Papercolor
 set laststatus=2
-let g:airline_theme = "dark"
+let g:airline_theme = "dracula"
 let g:airline_powerline_fonts = 1 " set 0 if you don't have powerline font, otherwise set 1
 let g:airline#extensions#tabline#enabled=1 " enable tabline
 let g:airline#extensions#tabline#fnamemod=':t' " show only filename in tabline
 let g:enable_bold_font = 1
-"neovim terminal setting
-if has('nvim')
-    tnoremap <Esc> <C-\><C-n>
-    autocmd TermOpen * set bufhidden=hide
-endif
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <leader>bn :bn!<CR>
@@ -61,7 +57,6 @@ nnoremap <leader>ba :buffers<CR>:buffer<Space>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>t :vsplit term://zsh<CR>
 function! ToggleVExplorer() " toggle netrw
     if exists("t:expl_buf_num")
         let expl_win_num = bufwinnr(t:expl_buf_num)
@@ -81,11 +76,18 @@ function! ToggleVExplorer() " toggle netrw
     endif
 endfunction
 map <leader>e :call ToggleVExplorer()<CR>
-" moving line 
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
 " moving view
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+" related to split view 
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
+nnoremap <leader>= <C-w>=
+nnoremap <leader>- <C-w>_
+nnoremap <leader><Bslash> <C-w><bar>
