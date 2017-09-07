@@ -12,6 +12,7 @@ Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hdima/python-syntax'
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -37,6 +38,8 @@ set listchars=space:·,tab:>> " set symbol for invisible charactor
 set ignorecase 
 set smartcase " case sensitive only when you search big case word
 set showcmd " show key stroke
+set splitbelow
+set splitright
 "  Explore setting
 let g:netrw_browse_split = 4 " set explore list style
 let g:netrw_altv = 1 
@@ -55,7 +58,8 @@ let g:enable_bold_font = 1
 let mapleader = "\<Space>"
 nnoremap <leader>bn :bn!<CR>
 nnoremap <leader>ba :buffers<CR>:buffer<Space>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>wq :wq<CR>
+nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <leader><S-e> :NERDTreeFind<CR>
+nnoremap <leader>w <C-W>
