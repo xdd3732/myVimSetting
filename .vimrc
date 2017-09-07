@@ -11,6 +11,7 @@ Plug 'hzchirs/vim-material'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hdima/python-syntax'
+Plug 'scrooloose/nerdtree'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -57,37 +58,4 @@ nnoremap <leader>ba :buffers<CR>:buffer<Space>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>wq :wq<CR>
 nnoremap <leader>q :q<CR>
-function! ToggleVExplorer() " toggle netrw
-    if exists("t:expl_buf_num")
-        let expl_win_num = bufwinnr(t:expl_buf_num)
-        if expl_win_num != -1
-            let cur_win_nr = winnr()
-            exec expl_win_num . 'wincmd w'
-            close
-            exec cur_win_nr . 'wincmd w'
-            unlet t:expl_buf_num
-        else
-            unlet t:expl_buf_num
-        endif
-    else
-        exec '1wincmd w'
-        Vexplore
-        let t:expl_buf_num = bufnr("%")
-    endif
-endfunction
-map <leader>e :call ToggleVExplorer()<CR>
-" moving view
-nnoremap <C-j> :m .+1<CR>==
-nnoremap <C-k> :m .-2<CR>==
-inoremap <C-j> <Esc>:m .+1<CR>==gi
-inoremap <C-k> <Esc>:m .-2<CR>==gi
-vnoremap <C-j> :m '>+1<CR>gv=gv
-vnoremap <C-k> :m '<-2<CR>gv=gv
-" related to split view 
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-nnoremap <leader>= <C-w>=
-nnoremap <leader>- <C-w>_
-nnoremap <leader><Bslash> <C-w><bar>
+nnoremap <leader>e :NERDTreeToggle<CR>
