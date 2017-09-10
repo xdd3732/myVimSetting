@@ -13,6 +13,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'hdima/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -26,6 +27,7 @@ set softtabstop=4
 set shiftwidth=4 " four spaces for indent
 set expandtab " change tab to spaces
 set cursorline " highlighting current line
+set cursorcolumn " highlightling current column
 filetype indent on " indent determined by the file type you open
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
@@ -33,13 +35,13 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 let python_highlight_all = 1 " enable enhencement ptyhon highlighting
 let OPTION_NAME = 1 " same as above
-set list " enable invisible charactor
-set listchars=space:·,tab:>> " set symbol for invisible charactor
+set list lcs=tab:\|\ " enable tab invisible charactor
 set ignorecase 
 set smartcase " case sensitive only when you search big case word
 set showcmd " show key stroke
 set splitbelow
 set splitright
+set hidden
 "  Explore setting
 let g:netrw_browse_split = 4 " set explore list style
 let g:netrw_altv = 1 
@@ -49,11 +51,16 @@ set t_Co=256
 set background=dark
 colorscheme Papercolor
 set laststatus=2
+"  Plugin setting
+"  airline
 let g:airline_theme = "dracula"
 let g:airline_powerline_fonts = 1 " set 0 if you don't have powerline font, otherwise set 1
 let g:airline#extensions#tabline#enabled=1 " enable tabline
 let g:airline#extensions#tabline#fnamemod=':t' " show only filename in tabline
 let g:enable_bold_font = 1
+" indentline
+let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_leadingSpaceChar = '·'
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <leader>bn :bn!<CR>
