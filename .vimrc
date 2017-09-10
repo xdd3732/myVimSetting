@@ -14,10 +14,12 @@ Plug 'hdima/python-syntax'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Yggdroot/indentLine'
+Plug 'majutsushi/tagbar'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Editor setting
+set tags=./tags;/
 set number " set line number
 set numberwidth=2 " set line number width
 syntax enable " enable syntax
@@ -36,12 +38,14 @@ set hlsearch            " highlight matches
 let python_highlight_all = 1 " enable enhencement ptyhon highlighting
 let OPTION_NAME = 1 " same as above
 set list lcs=tab:\|\ " enable tab invisible charactor
+set hidden
 set ignorecase 
 set smartcase " case sensitive only when you search big case word
 set showcmd " show key stroke
 set splitbelow
 set splitright
 set hidden
+set backspace=2
 "  Explore setting
 let g:netrw_browse_split = 4 " set explore list style
 let g:netrw_altv = 1 
@@ -61,12 +65,16 @@ let g:enable_bold_font = 1
 " indentline
 let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
+" ctrlp
+let g:ctrlp_extensions = ['tag']
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <leader>bn :bn!<CR>
 nnoremap <leader>ba :buffers<CR>:buffer<Space>
+nnoremap <leader>bd :bd<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>e :NERDTreeToggle<CR>
 nnoremap <leader><S-e> :NERDTreeFind<CR>
 nnoremap <leader>w <C-W>
+nnoremap <leader>t :TagbarToggle<CR>
