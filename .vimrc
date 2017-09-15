@@ -10,6 +10,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'ctrlpvim/ctrlp.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -63,11 +64,10 @@ let g:indentLine_leadingSpaceEnabled = 1
 let g:indentLine_leadingSpaceChar = '·'
 " ctrlp
 let g:ctrlp_extensions = ['tag']
-" tagbar
-let g:tagbar_map_showproto = "<C-t>"
 let g:ctrlp_cmd='CtrlP :pwd'
 let g:ctrlp_clear_cache_on_exit = 0 
-let g:ctrlp_user_command = 'find %s -type f'
+" tagbar
+let g:tagbar_map_showproto = "<C-t>"
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
@@ -85,3 +85,7 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
+nnoremap <Up>    :resize +2<CR>
+nnoremap <Down>  :resize -2<CR>
+nnoremap <Left>  :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
