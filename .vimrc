@@ -5,9 +5,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
-Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'hdima/python-syntax'
+Plug 'scrooloose/nerdtree'
 Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
@@ -42,7 +41,6 @@ set splitbelow
 set splitright
 set hidden
 set backspace=2
-set mouse=a
 set breakindent " auto indent when wrap
 "  Explore setting
 let g:netrw_browse_split = 4 " set explore list style
@@ -67,6 +65,9 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:ctrlp_extensions = ['tag']
 " tagbar
 let g:tagbar_map_showproto = "<C-t>"
+let g:ctrlp_cmd='CtrlP :pwd'
+let g:ctrlp_clear_cache_on_exit = 0 
+let g:ctrlp_user_command = 'find %s -type f'
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
@@ -80,7 +81,6 @@ nnoremap <C-e> :NERDTreeFind<CR>
 nnoremap <S-e> :NERDTreeFocus<CR>
 nnoremap <leader>w <C-W>
 nnoremap <leader>t :TagbarToggle<CR>
-nnoremap <leader>p :CtrlP<CR>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
