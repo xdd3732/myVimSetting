@@ -11,6 +11,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -68,6 +69,8 @@ let g:ctrlp_cmd='CtrlP :pwd'
 let g:ctrlp_clear_cache_on_exit = 0 
 " tagbar
 let g:tagbar_map_showproto = "<C-t>"
+" ack
+let g:ackprg = "grep"
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
@@ -85,7 +88,3 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
