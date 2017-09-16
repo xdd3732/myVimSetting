@@ -27,7 +27,6 @@ set shiftwidth=4 " four spaces for indent
 set expandtab " change tab to spaces
 set cursorline " highlighting current line
 set cursorcolumn " highlightling current column
-filetype indent on " indent determined by the file type you open
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
@@ -62,15 +61,20 @@ let g:airline#extensions#tabline#fnamemod=':t' " show only filename in tabline
 let g:enable_bold_font = 1
 " indentline
 let g:indentLine_leadingSpaceEnabled = 1
-let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_leadingSpaceChar = '-'
+let g:indentLine_char = '|'
 " ctrlp
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_cmd='CtrlP :pwd'
 let g:ctrlp_clear_cache_on_exit = 0 
-" tagbar
+let g_ctrlp_by_filename = 1
+let ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]build$',
+    \ 'file': '\v\.(pm|bin|ini)l$',
+    \ }
 let g:tagbar_map_showproto = "<C-t>"
 " ack
-let g:ackprg = "grep"
+let g:ackprg = "grep -RIn"
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
@@ -88,3 +92,18 @@ nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
 nnoremap <leader>l <C-w>l
+" map Ack command
+nnoremap <leader>a :Ack!
+" run Ack against current word
+nnoremap <leader>A vaw"ay:Ack! <C-R>a
+nnoremap <C-L> :nohl<CR><C-L> 
+" Automatically add closing ( { [ ' " `
+inoremap { {}<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+nnoremap <S-j> :m .+1<CR>==
+nnoremap <S-k> :m .-2<CR>==
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
