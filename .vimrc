@@ -11,7 +11,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'majutsushi/tagbar'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-dispatch'
 Plug 'mileszs/ack.vim'
+Plug 'flazz/vim-colorschemes'
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -26,14 +28,12 @@ set softtabstop=4
 set shiftwidth=4 " four spaces for indent
 set expandtab " change tab to spaces
 set cursorline " highlighting current line
-set cursorcolumn " highlightling current column
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 let python_highlight_all = 1 " enable enhencement ptyhon highlighting
 let OPTION_NAME = 1 " same as above
-set list lcs=tab:\|\ " enable tab invisible charactor
 set hidden
 set ignorecase 
 set smartcase " case sensitive only when you search big case word
@@ -50,7 +50,7 @@ let g:netrw_winsize = 25
 "  Theme setting
 set t_Co=256
 set background=dark
-colorscheme PaperColor
+colorscheme Papercolor
 set laststatus=2
 "  Plugin setting
 "  airline
@@ -75,6 +75,7 @@ let ctrlp_custom_ignore = {
 let g:tagbar_map_showproto = "<C-t>"
 " ack
 let g:ackprg = "grep -RIn"
+let g:ack_use_dispatch = 1
 " keymapping
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
@@ -96,6 +97,7 @@ nnoremap <leader>l <C-w>l
 nnoremap <leader>a :Ack!
 " run Ack against current word
 nnoremap <leader>A vaw"ay:Ack! <C-R>a
+" remove highlight
 nnoremap <C-L> :nohl<CR><C-L> 
 " Automatically add closing ( { [ ' " `
 inoremap { {}<ESC>i
@@ -103,6 +105,7 @@ inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
+" Swap lines"
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
 vnoremap <S-j> :m '>+1<CR>gv=gv
