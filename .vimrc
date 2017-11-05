@@ -77,12 +77,22 @@ let ctrlp_custom_ignore = {
 " }}}
 " Tagbar{{{
 let g:tagbar_map_showproto = "<C-t>"
+nnoremap <leader>t :TagbarToggle<CR>
 " }}}
 " Ack{{{
 let g:ack_use_dispatch = 1
 let g:ackprg = "grep -RIn"
+" map Ack command
+nnoremap <leader>a :Ack!
+" run Ack against current word
+nnoremap <leader>A vaw"ay:Ack! <C-R>a
 " }}}
-" Keymap{{{
+" NerdTree{{{
+nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <C-e> :NERDTreeFind<CR>
+nnoremap <S-e> :NERDTreeFocus<CR>
+" }}}
+" General Keymap{{{
 let mapleader = "\<Space>"
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bprevious<CR>
@@ -90,11 +100,7 @@ nnoremap <leader>ba :buffers<CR>:buffer<Space>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>s :w<CR>
 nnoremap <leader>q :q<CR>
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <C-e> :NERDTreeFind<CR>
-nnoremap <S-e> :NERDTreeFocus<CR>
 nnoremap <leader>w <C-W>
-nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>h <C-w>h
@@ -104,10 +110,6 @@ nnoremap gV `[v`]
 " when wrap, move real one line
 nnoremap j gj
 nnoremap k gk
-" map Ack command
-nnoremap <leader>a :Ack!
-" run Ack against current word
-nnoremap <leader>A vaw"ay:Ack! <C-R>a
 " remove highlight
 nnoremap <C-L> :nohl<CR><C-L> 
 " Automatically add closing ( { [ ' " `
